@@ -1,0 +1,385 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --clr-yellow-1: hsl(43, 74%, 49%);
+  --clr-yellow-5: hsl(33, 100%, 50%);
+  --clr-yellow-10: hsl(51, 100%, 50%);
+  --radius: 0.25rem;
+  --transition: all 0.3s linear;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'kongtextregular', Arial, sans-serif;
+}
+
+@font-face {
+  font-family: 'kongtextregular';
+  src: url('./fonts/kongtext-webfont.woff2') format('woff2'),
+    url('./fonts/kongtext-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+.container {
+  position: relative;
+  background-image: url('tv.svg');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vw;
+  background-size: cover;
+}
+
+/* .tv {
+  position: absolute;
+  width: 100vw;
+  height: auto;
+} */
+
+.App {
+  padding-top: 6vw;
+  height: 55vw;
+  /* border: 1rem darkblue solid; */
+  width: 73vw;
+  overflow: auto;
+  position: absolute;
+  left: 9vw;
+  top: calc(100% * 3.7 / 10);
+  box-sizing: border-box;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.upper-arrow-wrapper {
+  position: absolute;
+  /* max-width: 100%;
+  max-height: 100%; */
+  width: 5vw;
+  /* width: 0.1vw;
+  height: 0.1vw; */
+  top: 5vw;
+  left: 1vw;
+}
+
+.fixed {
+  width: 5vw;
+  position: fixed;
+}
+
+/*
+=============== 
+Navbar
+===============
+*/
+
+.nav-container {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 6vw;
+  background-color: var(--clr-yellow-10);
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 1vw;
+  /* float: left; */
+  z-index: 15;
+  justify-content: flex-start;
+  border-bottom: 0.5vw solid var(--clr-yellow-5);
+  border-right: 0.5vw solid var(--clr-yellow-5);
+  border-left: 0.5vw solid black;
+  border-top: 0.3vw solid black;
+}
+
+.nav-bar-container div:hover {
+  background-color: var(--clr-yellow-1);
+}
+
+.nav-bar {
+  display: flex;
+  padding: 0 2vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+  max-height: 6vw;
+  /* text-overflow: ellipsis;
+    overflow: hidden */
+  /* border-right: 0.2vw solid var(--clr-yellow-1); */
+}
+
+.nav-bar:hover {
+  background-color: var(--clr-yellow-1);
+}
+
+.nav-bar a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-bar button {
+  max-height: 3vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-bar svg {
+  width: 20vw;
+}
+
+.filter-btn {
+  /* background: transparent;
+  border-color: transparent; */
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+  letter-spacing: 1px;
+  padding: 0.375rem 0.75rem;
+  /* color: var(--clr-gold); */
+  /* cursor: pointer; */
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+
+#Starters::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw); /* fixed header height*/
+  margin: -cal(6vw + 40vw) 0 0; /* negative fixed header height */
+}
+
+#Traditional-pizza::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Gourmet-pizza::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Seafood-pizza::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Pasta::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Salads::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Desserts::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Deals::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+#Beverages::before {
+  content: '';
+  display: block;
+  height: cal(6vw + 35vw);
+  margin: -cal(6vw + 40vw) 0 0;
+}
+
+.amount-container {
+  position: absolute;
+  top: -0.85rem;
+  right: -0.85rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+}
+
+.total-amount {
+  color: white;
+  margin-bottom: 0;
+  font-size: 1.3rem;
+  z-index: 6;
+}
+
+/*
+=============== 
+FoodDialog
+===============
+*/
+
+.dialog {
+  width: 50vw;
+  background-color: white;
+  position: fixed;
+  top: 5vh;
+  z-index: 5;
+  max-height: calc(100% - 20vh);
+  left: 10vw;
+  overflow: scroll;
+}
+
+@media (max-width: 400px) {
+  .dialog {
+    width: 100%;
+    left: 0px;
+    z-index: 12;
+  }
+}
+.dialog-shadow {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 4;
+}
+
+.dialog-banner {
+  min-height: 200px;
+  margin-bottom: 20px;
+  background-position: center;
+  background-size: cover;
+}
+
+.dialog-banner-name {
+  position: absolute;
+  background-color: rgb(255 255 255 / 70%);
+  top: 5vw;
+  font-size: 2vw;
+  padding: 0.33vw 2.5vw;
+}
+
+.dialog-content {
+  overflow: auto;
+  min-height: 1vw;
+  padding: 0vw 2.5vw;
+  padding-bottom: 1.2vw;
+}
+
+.dialog-footer {
+  box-shadow: 0px -2px 10px 0px grey;
+  height: 3.5vw;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.dialog-footer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ingredient {
+  height: 2vw;
+  width: 100%;
+  padding: 1vw;
+  transition: all 0.5s ease;
+  border: none;
+}
+
+.ingredient:hover {
+  height: 6vw;
+}
+
+.choice {
+  background-color: #ff7f50;
+  padding: 1vw 0;
+}
+
+.choice:hover {
+  background-color: #cb2c29;
+}

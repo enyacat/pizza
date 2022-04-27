@@ -1,0 +1,56 @@
+.order-area {
+    position: absolute;
+    right: 0px;
+    top: 6vw;
+    min-width: 20vw;
+    background-color: white;
+    height: calc(100% - 10vh);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 90vh;
+    padding-bottom: 2vw;
+    flex-grow: 1;
+    display: block;
+}
+
+.order-area.hidden{
+    display: none;
+}
+
+@media(max-width: 400px) { 
+    .order-area {
+    position: relative; 
+    width: 100%; 
+    }
+}
+
+.order-content {
+    padding: 2vw;
+    height: 100%;
+}
+
+.order-container {
+    padding: 10px 0px;
+    border-bottom: 1px solid grey;
+}
+
+.order-item {
+    padding: 10px 0px;
+    display: grid;
+    grid-template-columns: 5vw 12vw 2vw 8vw;
+    justify-content: space-between;
+    font-size: 0.6vw;
+}
+
+.pay {
+    position: absolute;
+    left: calc(50% - 36px);
+    margin-top: 1vw;
+}
+
+.detailed-items {
+    color: gray;
+    font-size: 0.5vw;
+}

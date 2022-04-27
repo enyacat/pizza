@@ -1,0 +1,24 @@
+.quantity-input {
+    font-size: 1vw;
+    width: 3.5vw;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.increment-container {
+    display: flex;
+    height: 2.5vw;
+    align-items: center;
+}
+
+.increment-button {
+    width: 2vw;
+    height: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.increment-button:disabled {
+    opacity: 0.5;
+}

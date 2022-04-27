@@ -1,0 +1,20 @@
+.topping-checkbox {
+    margin-right: 1vw;
+    width: 1vw;
+    height: 1vw;
+}
+
+
+.topping-content {
+    height: 10vw;
+    overflow: scroll;
+}
+
+.toppings {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.topping-section {
+    font-size: 1vw;
+}
