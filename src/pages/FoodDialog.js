@@ -9,6 +9,7 @@ import {
 } from '../features/order/orderSlice'
 import { addToCart, calculateTotal } from '../features/cart/cartSlice'
 import { resetToppings } from '../features/toppings/toppingsSlice'
+import { resetChoiceValue } from '../features/choice/choiceSlice'
 import {
   Choices,
   QuantityInput,
@@ -28,7 +29,7 @@ const FoodDialog = () => {
 
   useEffect(() => {
     getPrice()
-  }, [openFood && openFood.extraToppings, quantity, openFood])
+  }, [openFood && (extraToppings, quantity, openFood.defaultToppings)])
 
   useEffect(() => {
     dispatch(calculateTotal())
@@ -58,6 +59,7 @@ const FoodDialog = () => {
         className='dialog-shadow'
         onClick={() => {
           dispatch(resetQuantity())
+          dispatch(resetChoiceValue())
           dispatch(resetToppings())
           dispatch(closeFood())
         }}
@@ -111,12 +113,14 @@ const FoodDialog = () => {
                 ? dispatch(editOrder(order))
                 : dispatch(generateOrder(order))
               dispatch(addToCart({ order, quantity }))
+              dispatch(resetToppings())
               dispatch(resetQuantity())
+              dispatch(resetChoiceValue())
               dispatch(closeFood())
             }}
           >
             {isEditing ? 'Update order: ' : 'Add to orders: '}
-            {formatPrice(price)}
+            {formatPrice(openFood.price * quantity)}
           </button>
         </div>
       </div>

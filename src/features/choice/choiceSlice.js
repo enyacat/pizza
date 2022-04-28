@@ -10,8 +10,11 @@ const choiceSlice = createSlice({
     setChoiceValue: (state, action) => {
       state.choiceValue = action.payload
     },
+    resetChoiceValue: (state) => {
+      state.choiceValue = ''
+    },
   },
 })
 
-export const { setChoiceValue } = choiceSlice.actions
+export const { setChoiceValue, resetChoiceValue } = choiceSlice.actions
 export default choiceSlice.reducer

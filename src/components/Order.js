@@ -60,8 +60,8 @@ const Order = () => {
     <div
       className={
         isActive
-          ? 'nes-container is-rounded order-area'
-          : 'nes-container is-rounded order-area.hidden'
+          ? 'nes-container is-rounded is-dark order-area'
+          : 'nes-container is-rounded is-dark order-area.hidden'
       }
     >
       {cartItems.length === 0 ? (

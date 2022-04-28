@@ -30,11 +30,11 @@ function App() {
         <Title />
         <FoodDialog />
         <ArrowUp />
-        <Order />
+        <Cart />
         <Routes>
           <Route path='/' element={<Menu />} />
           <Route path='/about' element={<About />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<Order />} />
           <Route
             path='/checkout'
             element={

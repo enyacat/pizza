@@ -20,7 +20,8 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 const CheckoutForm = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { user, myUser } = useSelector((store) => store.user)
+  const { myUser } = useSelector((store) => store.user)
+  const { user } = useAuth0()
   const { cartItems, amount } = useSelector((store) => store.cart)
 
   // Stripe code
@@ -68,9 +69,9 @@ const CheckoutForm = () => {
     // eslint-disable-next-line
   }, [])
 
-  // useEffect(() => {
-  //   dispatch(setMyUser(user))
-  // }, [user])
+  useEffect(() => {
+    dispatch(setMyUser(user))
+  }, [user])
 
   const handleChange = async (event) => {
     setDisabled(event.empty)

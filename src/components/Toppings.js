@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Toppings.css'
 import { formatPrice } from '../utils/helpers'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,6 +9,24 @@ export function ExtraToppings() {
   const dispatch = useDispatch()
   const { openFood } = useSelector((state) => state.openFood)
   const { extraToppings } = useSelector((state) => state.toppings)
+
+  useEffect(() => {
+    dispatch(
+      setOpenFood({
+        ...openFood,
+        extraToppings: extraToppings,
+      })
+    )
+  }, [extraToppings])
+
+  // useEffect(() => {
+  //   dispatch(
+  //     setOpenFood({
+  //       ...openFood,
+  //       defaultToppings: defaultToppings,
+  //     })
+  //   )
+  // }, [openFood.defaultToppings])
 
   if (openFood.extraToppings) {
     return (
@@ -30,12 +48,6 @@ export function ExtraToppings() {
                 checked={topping.checked}
                 onChange={() => {
                   dispatch(checkToppings(topping))
-                  dispatch(
-                    setOpenFood({
-                      ...openFood,
-                      extraToppings: extraToppings,
-                    })
-                  )
                 }}
               />
               <div>{topping.name}</div>
@@ -64,12 +76,6 @@ export function ExtraToppings() {
               checked={topping.checked}
               onChange={() => {
                 dispatch(checkToppings(topping))
-                dispatch(
-                  setOpenFood({
-                    ...openFood,
-                    extraToppings: extraToppings,
-                  })
-                )
               }}
             />
             <div>{topping.name}</div>

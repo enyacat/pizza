@@ -18,10 +18,7 @@ const toppingsSlice = createSlice({
       })
     },
     resetToppings: (state) => {
-      state.extraToppings = [...extraToppings]
-    },
-    addExtraToppings(state, action) {
-      state.extraToppings = action.payload
+      state.extraToppings.map((topping) => (topping.checked = false))
     },
   },
 })
