@@ -4,14 +4,12 @@ import { Hamster } from '../icons'
 import { clearCart } from '../features/cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOpenFood } from '../features/openFood/openFoodSlice'
-import { removeItem } from '../features/cart/cartSlice'
+import { removeItem, editOrder } from '../features/cart/cartSlice'
 import { formatPrice, hasToppings } from '../utils/helpers'
 
 const CartContainer = () => {
   const dispatch = useDispatch()
-  const { cartItems, total, amount, isActive } = useSelector(
-    (store) => store.cart
-  )
+  const { cartItems, total, isActive } = useSelector((store) => store.cart)
 
   return (
     <div
@@ -46,9 +44,10 @@ const CartContainer = () => {
                         width='30vw'
                         height='30vw'
                         className='nes-pointer'
-                        onClick={() =>
+                        onClick={() => {
+                          dispatch(editOrder())
                           dispatch(setOpenFood({ ...order, index }))
-                        }
+                        }}
                       />
                     </div>
                     <div>

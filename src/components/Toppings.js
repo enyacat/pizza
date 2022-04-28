@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './Toppings.css'
 import { formatPrice } from '../utils/helpers'
 import { useDispatch, useSelector } from 'react-redux'
-import { setOpenFood, getPrice } from '../features/openFood/openFoodSlice'
+import { setOpenFood } from '../features/openFood/openFoodSlice'
 import { checkToppings } from '../features/toppings/toppingsSlice'
 
 export function ExtraToppings() {

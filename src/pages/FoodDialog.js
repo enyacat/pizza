@@ -2,12 +2,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeFood, getPrice } from '../features/openFood/openFoodSlice'
+import { generateOrder, resetQuantity } from '../features/order/orderSlice'
 import {
-  generateOrder,
-  editOrder,
-  resetQuantity,
-} from '../features/order/orderSlice'
-import { addToCart, calculateTotal } from '../features/cart/cartSlice'
+  addToCart,
+  calculateTotal,
+  updateOrder,
+} from '../features/cart/cartSlice'
 import { resetToppings } from '../features/toppings/toppingsSlice'
 import { resetChoiceValue } from '../features/choice/choiceSlice'
 import {
@@ -21,11 +21,11 @@ import { formatPrice, hasToppings } from '../utils/helpers'
 
 const FoodDialog = () => {
   const dispatch = useDispatch()
-  const { openFood, price } = useSelector((store) => store.openFood)
-  const { quantity, isEditing } = useSelector((store) => store.order)
+  const { openFood } = useSelector((store) => store.openFood)
+  const { quantity } = useSelector((store) => store.order)
   const { choiceValue } = useSelector((store) => store.choice)
   const { extraToppings } = useSelector((store) => store.toppings)
-  const { cartItems } = useSelector((store) => store.cart)
+  const { cartItems, isEditing } = useSelector((store) => store.cart)
 
   useEffect(() => {
     if (openFood) {
@@ -44,13 +44,13 @@ const FoodDialog = () => {
       ...openFood,
       quantity: quantity,
       extraToppings: extraToppings,
-      choice: choiceValue,
+      choiceValue: choiceValue,
     }
   } else if (openFood) {
     order = {
       ...openFood,
       quantity: quantity,
-      choice: choiceValue,
+      choiceValue: choiceValue,
     }
   }
 
@@ -112,7 +112,7 @@ const FoodDialog = () => {
             disabled={openFood.choices && !choiceValue}
             onClick={() => {
               isEditing
-                ? dispatch(editOrder(order))
+                ? dispatch(updateOrder(order))
                 : dispatch(generateOrder(order))
               dispatch(addToCart({ order, quantity }))
               dispatch(resetToppings())

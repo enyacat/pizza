@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   order: {},
   quantity: 1,
-  isEditing: false,
+  // isEditing: false,
 }
 
 const orderSlice = createSlice({
@@ -26,10 +26,6 @@ const orderSlice = createSlice({
     },
     resetQuantity: (state) => {
       state.quantity = 1
-    },
-    editOrder: (state, action) => {
-      state.order[action.payload.index] = action.payload.order
-      state.isEditing = true
     },
   },
 })

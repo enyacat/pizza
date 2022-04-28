@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Order.css'
 import { formatPrice } from '../utils/helpers'
@@ -14,31 +14,6 @@ const Order = () => {
 
   //   removeItem,
   // } = useGlobalContext()
-
-  // const total = orders.reduce((total, order) => {
-  //   return total + getPrice(order)
-  // }, 0)
-  // const GST = total / 11
-
-  // const removeItem = (idx) => {
-  // let orderArr = []
-  // for (let i = 0; i < idx; i++) {
-  //     orderArr.push(orders[i])
-  // }
-  // if (idx < orders.length - 1) {
-  //     for (let i = orders.length - 1; i > idx; i--) {
-  //         orderArr.push(orders[i])
-  //     }
-  // }
-
-  // removePeople(e) {
-  //     var array = [...this.state.people]; // make a separate copy of the array
-  //     var index = array.indexOf(e.target.value)
-  //     if (index !== -1) {
-  //         array.splice(index, 1);
-  //         this.setState({ people: array });
-  //     }
-  // }
 
   // var orderArr = [...orders]
   // orderArr.splice(idx, 1)

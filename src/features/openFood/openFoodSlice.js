@@ -13,16 +13,18 @@ const openFoodSlice = createSlice({
     },
     getPrice: (state) => {
       const extraToppingPrice = state.openFood.extraToppings
-        .map((topping) => {
-          if (topping.checked) {
-            return topping.price
-          }
-          return 0
-        })
-        .reduce((totalPrice, currentPrice) => {
-          totalPrice += currentPrice
-          return totalPrice
-        }, 0)
+        ? state.openFood.extraToppings
+            .map((topping) => {
+              if (topping.checked) {
+                return topping.price
+              }
+              return 0
+            })
+            .reduce((totalPrice, currentPrice) => {
+              totalPrice += currentPrice
+              return totalPrice
+            }, 0)
+        : 0
       state.openFood.totalPrice = state.openFood.price + extraToppingPrice
     },
     closeFood: (state) => {

@@ -15,6 +15,7 @@ const initialState = {
   total: 0,
   isLoading: true,
   isActive: false,
+  isEditing: false,
 }
 
 const cartSlice = createSlice({
@@ -29,6 +30,23 @@ const cartSlice = createSlice({
       state.cartItems = [...state.cartItems, order]
       state.amount = state.amount + quantity
       state.total = state.total + order.price * quantity
+    },
+    editOrder: (state, action) => {
+      // tempOrder = [...state.order]
+      // tempOrder.splice(action.payload.index, 1, action.payload)
+
+      // state.order = tempOrder
+      state.isEditing = true
+    },
+    updateOrder: (state, action) => {
+      // state.cartItems = tempCart
+      const itemIndex = action.payload.index
+      state.cartItems.splice(itemIndex, 1)
+      console.log(`items in the cart are ${state.cartItems}`)
+      // state.cartItems.push(action.payload)
+      // state.cartItems[itemIndex] = action.payload
+      // state.cartItems.splice(itemIndex, 1, action.payload)
+      // state.cartItems[action.payload.index] = action.payload
     },
     clearCart: (state) => {
       state.cartItems = []
@@ -52,18 +70,9 @@ const cartSlice = createSlice({
     calculateTotal: (state) => {
       let amount = 0
       let total = 0
-      let extraToppingPrice = 0
       state.cartItems.forEach((item) => {
-        extraToppingPrice =
-          0 ||
-          (item.extraToppings &&
-            item.extraToppings
-              .filter((topping) => topping.checked)
-              .reduce((acc, topping) => {
-                return acc + topping.price
-              }, 0))
         amount += item.quantity
-        total += item.quantity * (item.price + extraToppingPrice)
+        total += item.quantity * item.totalPrice
       })
       state.amount = amount
       state.total = total
@@ -74,6 +83,8 @@ const cartSlice = createSlice({
 export const {
   toggleCart,
   addToCart,
+  editOrder,
+  updateOrder,
   clearCart,
   removeItem,
   increase,

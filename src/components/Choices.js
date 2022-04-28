@@ -17,7 +17,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 13,
-            choice: 'Medium',
+            choiceValue: 'Medium',
           })
         )
       } else if (choiceValue === 'Large') {
@@ -25,7 +25,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 15,
-            choice: 'Large',
+            choiceValue: 'Large',
           })
         )
       } else if (choiceValue === 'Family') {
@@ -33,7 +33,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 20,
-            choice: 'Family',
+            choiceValue: 'Family',
           })
         )
       }
@@ -43,7 +43,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 15,
-            choice: 'Medium',
+            choiceValue: 'Medium',
           })
         )
       } else if (choiceValue === 'Large') {
@@ -51,7 +51,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 17,
-            choice: 'Large',
+            choiceValue: 'Large',
           })
         )
       } else if (choiceValue === 'Family') {
@@ -59,7 +59,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 23,
-            choice: 'Family',
+            choiceValue: 'Family',
           })
         )
       }
@@ -69,7 +69,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 16,
-            choice: 'Medium',
+            choiceValue: 'Medium',
           })
         )
       } else if (choiceValue === 'Large') {
@@ -77,7 +77,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 18,
-            choice: 'Large',
+            choiceValue: 'Large',
           })
         )
       } else if (choiceValue === 'Family') {
@@ -85,7 +85,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 24,
-            choice: 'Family',
+            choiceValue: 'Family',
           })
         )
       }
@@ -95,7 +95,7 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 14,
-            choice: 'Large',
+            choiceValue: 'Large',
           })
         )
       } else if (choiceValue === 'Family') {
@@ -103,12 +103,12 @@ const Choices = () => {
           setOpenFood({
             ...openFood,
             price: 20,
-            choice: 'Family',
+            choiceValue: 'Family',
           })
         )
       }
     } else {
-      dispatch(setOpenFood({ ...openFood, choice: choiceValue }))
+      dispatch(setOpenFood({ ...openFood, choiceValue: choiceValue }))
     }
   }, [choiceValue])
 
