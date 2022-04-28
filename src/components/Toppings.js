@@ -19,15 +19,6 @@ export function ExtraToppings() {
     )
   }, [extraToppings])
 
-  // useEffect(() => {
-  //   dispatch(
-  //     setOpenFood({
-  //       ...openFood,
-  //       defaultToppings: defaultToppings,
-  //     })
-  //   )
-  // }, [openFood.defaultToppings])
-
   if (openFood.extraToppings) {
     return (
       <div className='topping-content'>

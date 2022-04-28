@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   openFood: null,
-  price: 0,
 }
 
 const openFoodSlice = createSlice({
@@ -12,7 +11,7 @@ const openFoodSlice = createSlice({
     setOpenFood: (state, action) => {
       state.openFood = action.payload
     },
-    getPrice: (state, action) => {
+    getPrice: (state) => {
       const extraToppingPrice = state.openFood.extraToppings
         .map((topping) => {
           if (topping.checked) {
@@ -24,10 +23,9 @@ const openFoodSlice = createSlice({
           totalPrice += currentPrice
           return totalPrice
         }, 0)
-
-      state.openFood.price = state.openFood.price + extraToppingPrice
+      state.openFood.totalPrice = state.openFood.price + extraToppingPrice
     },
-    closeFood: (state, action) => {
+    closeFood: (state) => {
       state.openFood = null
     },
   },

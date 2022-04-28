@@ -62,7 +62,7 @@ const CartContainer = () => {
                       />
                     </div>
                     <div>{order.choice && order.choice}</div>
-                    <div>{formatPrice(order.price)}</div>
+                    <div>{formatPrice(order.totalPrice)}</div>
                     {hasToppings(order) && (
                       <>
                         <div></div>

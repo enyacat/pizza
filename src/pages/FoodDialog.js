@@ -28,8 +28,10 @@ const FoodDialog = () => {
   const { cartItems } = useSelector((store) => store.cart)
 
   useEffect(() => {
-    getPrice()
-  }, [openFood && (extraToppings, quantity, openFood.defaultToppings)])
+    if (openFood) {
+      dispatch(getPrice())
+    }
+  }, [openFood && openFood.extraToppings, quantity, choiceValue])
 
   useEffect(() => {
     dispatch(calculateTotal())
@@ -120,7 +122,7 @@ const FoodDialog = () => {
             }}
           >
             {isEditing ? 'Update order: ' : 'Add to orders: '}
-            {formatPrice(openFood.price * quantity)}
+            {formatPrice(openFood.totalPrice * quantity)}
           </button>
         </div>
       </div>
