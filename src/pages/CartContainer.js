@@ -64,7 +64,7 @@ const CartContainer = () => {
                         onClick={() => dispatch(removeItem(index))}
                       />
                     </div>
-                    <div>{order.choice && order.choice}</div>
+                    <div>{order.choiceValue && order.choiceValue}</div>
                     <div>{formatPrice(order.totalPrice)}</div>
                     {hasToppings(order) && (
                       <>

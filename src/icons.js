@@ -1,7 +1,10 @@
 import React from 'react'
 export const ArrowUp = () => {
+  const goToTop = () => {
+    window.scrollTo(0, 0)
+  }
   return (
-    <div className='upper-arrow-wrapper'>
+    <div className='upper-arrow-wrapper' onClick={goToTop}>
       <div className='fixed'>
         <a className='nes-pointer' href='#nav-bar-container'>
           <img src='img/upperarrow.png' alt='' width='50vw' height='60vw' />

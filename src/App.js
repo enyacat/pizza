@@ -16,13 +16,6 @@ import { Navbar, Title, Order } from './components'
 import { ArrowUp } from './icons'
 
 function App() {
-  // const { cartItems } = useSelector((store) => store.cart)
-
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(calculateTotal())
-  // }, [cartItems])
   return (
     <AuthWrapper>
       <Router>
