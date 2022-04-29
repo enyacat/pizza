@@ -21,8 +21,8 @@ const CheckoutForm = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { myUser } = useSelector((store) => store.user)
-  const { user } = useAuth0()
-  const { cartItems, amount } = useSelector((store) => store.cart)
+  // const { user } = useAuth0()
+  const { cartItems, total } = useSelector((store) => store.cart)
 
   // Stripe code
 
@@ -56,11 +56,11 @@ const CheckoutForm = () => {
     try {
       const { data } = await axios.post(
         '/.netlify/functions/create-payment-intent',
-        JSON.stringify({ cartItems, amount })
+        JSON.stringify({ cartItems, total })
       )
       setClientSecret(data.clientSecret)
     } catch (error) {
-      // console.log(error.response)
+      console.log(error.response)
     }
   }
 
@@ -69,9 +69,9 @@ const CheckoutForm = () => {
     // eslint-disable-next-line
   }, [])
 
-  useEffect(() => {
-    dispatch(setMyUser(user))
-  }, [user])
+  // useEffect(() => {
+  //   dispatch(setMyUser(user))
+  // }, [user])
 
   const handleChange = async (event) => {
     setDisabled(event.empty)
@@ -110,7 +110,7 @@ const CheckoutForm = () => {
       ) : (
         <article>
           <h4>Hello, {myUser && myUser.name}</h4>
-          <p>Your total is {formatPrice(amount)}</p>
+          <p>Your total is {formatPrice(total)}</p>
           <p>Test Card Number : 4242 4242 4242 4242</p>
           <p>Any 3 digits, any future date and any 5 digit zip</p>
         </article>

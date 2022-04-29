@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 import './CartContainer.css'
 import { Hamster } from '../icons'
 import { clearCart } from '../features/cart/cartSlice'
@@ -10,6 +12,8 @@ import { formatPrice, hasToppings } from '../utils/helpers'
 const CartContainer = () => {
   const dispatch = useDispatch()
   const { cartItems, total, isActive } = useSelector((store) => store.cart)
+  const { myUser } = useSelector((store) => store.user)
+  const { loginWithRedirect } = useAuth0()
 
   return (
     <div
@@ -105,13 +109,23 @@ const CartContainer = () => {
               <div>{formatPrice(total / 11)}</div>
             </div>
           </div>
-          <button
-            type='button'
-            className='nes-btn is-success pay'
-            onClick={() => dispatch(clearCart())}
-          >
-            Pay
-          </button>{' '}
+          {myUser ? (
+            <Link
+              to='/checkout'
+              type='button'
+              className='nes-btn is-success pay'
+            >
+              Proceed to pay
+            </Link>
+          ) : (
+            <button
+              type='button'
+              className='auth-btn nes-btn is-primary'
+              onClick={loginWithRedirect}
+            >
+              Login to pay
+            </button>
+          )}{' '}
           <div> </div>
         </section>
       )}

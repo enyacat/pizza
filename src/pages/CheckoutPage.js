@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const CheckoutPage = () => {
   const { cartItems } = useSelector((store) => store.cart)
-
+  console.log('hi, here is checkoutpage')
   return (
     <main>
       <PageHero title='checkout' />
