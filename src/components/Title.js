@@ -10,7 +10,7 @@ export default function Title({ isActive }) {
         {!isActive && (
           <>
             <a
-              href='https://github.com/enyacat/8bitpizza'
+              href='https://github.com/enyacat/pizza'
               target='_blank'
               rel='noopener noreferrer'
             >
